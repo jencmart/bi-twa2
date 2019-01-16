@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+{%  set main = 'list' %}
+{% block title  %}
+    {{ query }}
+{%  endblock %}
+
+{% block content %}
+    <h1 id="site-header">Results of "{{ query }}"</h1>
+    <section class="search-results">
+        {% for employee in employees %}
+            <article class="search-result">
+                <header>
+                    <h2><a href="{{ path( 'user_detail', { id: employee.id } ) }}">{{ employee.name }}</a></h2>
+                </header>
+                <img class="avatar" src="/resources/img/avatar.png">
+                <section class="user-details">
+                    <div>{{ employee.email }}</div>
+                </section>
+                <footer>
+                    <a href="{{ path( 'user_detail', { id: employee.id } ) }}">View</a>
+                    <a href="{{ path( 'user_detail', { id: employee.id } ) }}">Edit</a>
+                </footer>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}

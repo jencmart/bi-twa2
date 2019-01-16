@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Algebra komplexních čísel</title>
+    <style>
+        h1 {color: red; font-size: 36pt; font-family: Arial;}
+        body {font-size: 16pt; font-family: Arial;}
+    </style>
+</head>
+<body>
+<h1>Algebra komplexních čísel</h1>
+
+<script type="text/javascript">
+
+    // Definice tridy Komplex
+    function Komplex(real,imag)
+    {
+        // Vlastnosti tridy
+        this.x = real;
+        this.y = imag;
+        this.magnituda = Math.sqrt(this.x*this.x+this.y*this.y);
+        this.zapis = "(" + this.x + "," + this.y + ")";
+    }
+
+    // Definice metod tridy Komplex
+    Komplex.soucet = function(a,b) {
+        return new Komplex(a.x+b.x,a.y+b.y);
+    }
+    Komplex.soucin = function(a,b) {
+        return new Komplex(a.x*b.x-a.y*b.y,a.x*b.y+a.y*b.x);
+    }
+    // Priklady vytvoreni instanci tridy Komplex
+    Komplex.nula = new Komplex(0,0);
+    Komplex.jedna = new Komplex(1,0);
+    Komplex.i = new Komplex(0,1);
+
+    c1= new Komplex(4,4);
+    c2= new Komplex(4,4);
+    res1 = Komplex.soucet(c1,c2);
+    res2 = Komplex.soucin(c1,c2);
+
+    document.write("Nula je " + Komplex.nula.zapis +"<br>");
+    document.write("Jedna je " + Komplex.jedna.zapis +"<br>");
+    document.write("Imaginarní jednotka i je " + Komplex.i.zapis +"<br>");
+    document.write("Komplexní číslo je " + c1.zapis +"<br>");
+    document.write("Magnituda je " + c1.magnituda +"<br>");
+    document.write("Součet komplexních čísel je " + res1.zapis +"<br>");
+    document.write("Součin komplexních čísel je " + res2.zapis +"<br>");
+
+</script>
+</body>
+</html>

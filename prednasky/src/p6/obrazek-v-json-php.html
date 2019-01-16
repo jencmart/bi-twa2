@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON</title>
+    <style>
+        h1 {color:red; font-size:36pt; font-family:Arial;}
+    </style>
+</head>
+<body>
+
+<p id="semtext"></p>
+
+<script type="text/javascript">
+    var text = String();
+    x = '{"meeting":[{"world":"Výuka virtuální reality v Opavì"}, {"date":"1.11. 2018"}, {"time":"17:00"}, {"context":"Pek a Frooxius a potopa uèebny"}, {"image":"pf.jpg"}]}';
+    text = '{"picture":[{"000000000"}, {"row":"00xxxxx00"}, {"row":"0000x0000"}, {"row":"0000x0000"}, {"row":"0000x0000"}, {"row":"0000x0000"}, {"row":"0000x0000"}, {"row":"0000x0000"}, {"row":"0000x0000"}, {"row":"0000x0000"}]}';
+    var pole;
+    pole = JSON.parse(text);
+
+    for (let i = 0; i < pole.size ; i++) {
+        d = document.createElement("div");
+        d.textContent = pole.picture[i].row;
+        document.body.appendChild(d);
+    }
+</script>
+
+<?php
+   $dotaz = $_REQUEST["q"];
+    if ($dotaz != '') {
+        echo "xxx";
+    }
+?>
+
+</body>
+</html>

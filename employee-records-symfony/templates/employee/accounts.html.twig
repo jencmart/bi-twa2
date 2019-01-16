@@ -1,0 +1,105 @@
+{% extends 'layout.html.twig' %}
+
+{%  set main = 'detail' %}
+
+{% block title  %}
+    {{ employee.name }}
+{% endblock %}
+
+{%  block additional_js %}
+
+    <script>
+        $(document).ready(function(){
+            $("#profile-details-show").show();
+            $("#profile-details-edit").hide();
+
+            /* switch between show and edit user profile */
+            $("#profile-details-show-btn").click(function () {
+                $("#profile-details-show").show();
+                $("#profile-details-edit").hide();
+            });
+
+            $("#profile-details-edit-btn").click(function () {
+                $("#profile-details-show").hide();
+                $("#profile-details-edit").show();
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+    <header>
+        <h1 id="site-header">{{ employee.name }}</h1>
+        <img class="avatar-detail" src="/resources/img/avatar.png">
+    </header>
+
+    <section>
+        <ul class="nav nav-tabs hidden-print">
+            <li id="profile-details-show-btn" class="active"><a href="{{ path( 'user_detail', { id: employee.id } ) }}"><i class="icon fa fa-user"></i>User Profile</a></li>
+        </ul>
+
+        <article id="profile-details-show">
+            <section>
+
+                {% for account in employee.accounts %}
+                <article>
+                    <header> <h3>Account: {{ account.username }}</h3> </header>
+                    <div class="label">Account name</div>
+                    <div>{{ account.username }}</div>
+                    <div class="label">Account password</div>
+                    <div>{{ account.password }}</div>
+
+                    <div class="label">Permanent</div>
+                    {%  if   account.validTo   is null %}
+                        <div>YES</div>
+                    {% else %}
+                        <div>NO, valid until:</div>
+                        <div>account.validTo</div>
+                    {% endif %}
+
+                    <a href="#">Edit this account</a>
+
+                </article>
+                {% endfor %}
+
+            </section>
+
+        </article>
+
+
+        <article id="profile-details-edit">
+
+            <form>
+                <section>
+                    <h3>Roles in UserMap</h3>
+
+                    <label> Function
+                        <select>
+
+                        </select>
+                    </label>
+
+
+                </section>
+
+                <section>
+                    <h3>Contact Information</h3>
+
+                    <label >Phone</label>
+                    <input type="text" placeholder="{{ employee.phone }}">
+
+                    <label >E-mail</label>
+                    <input type="text" placeholder="{{ employee.email }}">
+
+                    <label >Web page</label>
+                    <input type="text" placeholder="{{ employee.web }}">
+
+                </section>
+
+                <button>SAVE</button>
+            </form>
+
+        </article>
+    </section>
+{% endblock %}

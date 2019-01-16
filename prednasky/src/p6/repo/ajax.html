@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+  function napoveda(str) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("napovidac").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "prohlizec.php?q=" + str, true);
+    xmlhttp.send();
+  }
+</script>
+</head>
+<body>
+
+<p><b>Zaènete psát nìjaké slovo</b></p>
+<form>
+  Slovo: <input type="text" onkeyup="napoveda(this.value)">
+</form>
+<p>Nápovìda: <span id="napovidac"></span></p>
+</body>
+</html> 

@@ -1,0 +1,5 @@
+world {display:block; font-size:24pt; color:#00ff00; text-align:center; text-decoration:underline;}
+date {display:block; font-size:12pt; color:#0000ff; text-align:right;}
+time {display:block; font-size:12pt; color:#0000ff; text-align:right;}
+context {display:block; font-size:12pt; color:000000; text-align:left; margin-top:20;}
+image {background-image:url(pf.jpg); height:700px; width:1700px; float:left}

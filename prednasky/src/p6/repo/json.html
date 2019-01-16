@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pøíklady na JSON</title>
+    <style>
+      h1 {color:red; font-size:36pt; font-family:Arial;}
+    </style>
+  </head>
+  <body>
+    <h1>Pøíklady na JSON</h1>
+      
+      <script type="text/javascript">
+      
+      pole = new Array();
+      pole = [10, "deset"];
+      window.alert("Transformace pole na øetìzec JSON: " + JSON.stringify(pole));
+      
+      retezec = new String();
+      retezec = "[100, \"sto\"]";
+      window.alert("Transformace JSON øetìzce " + retezec + " na pole:");
+      
+      pole = new Array(); 
+      pole=JSON.parse(retezec);
+      for (i=0; i < pole.length; i++)
+      {
+        window.alert("Prvek #" + i + " je " + pole[i]);
+      }
+    </script>
+  </body>
+</html>

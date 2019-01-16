@@ -1,0 +1,73 @@
+/* Font pro cely Web */
+
+body {
+font-family: Georgia,serif;
+}
+
+
+
+/* Okraje pro odstavce */
+
+p 
+{
+margin-top: 2px;
+  margin-bottom: 6px;
+}
+
+
+
+/* Format nadpisu */
+
+h1 {
+background-color: #FDF5E6;
+  padding: 20px;
+  text-align: center; border-style: single;
+  border-width: 1px;
+
+}
+
+
+
+/* Format pro autory */
+
+p.jednaradka {
+font-size: 65%;
+  font-style: italic;
+  border-bottom-style: outset;
+  border-bottom-width: 1px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+
+/* Format pro anotace */
+
+p.anotace {
+font-size: 83%;
+  text-align: justify;
+}
+
+
+
+/* Nazev anotace */
+
+h2 {
+margin-top: 0px;
+  font-size: 100%;
+  color: blue;
+  margin-bottom: 0px;
+
+}
+
+
+
+/* Polozka anotace */
+div.anotace {
+border-top-style: outset;
+  border-top-width: 1px;
+  border-bottom-style: outset;
+  border-bottom-width: 1px;
+  padding: 10px;
+  background-color: #FFFFCC;  
+  margin-bottom: 15px;
+}

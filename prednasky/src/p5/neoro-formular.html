@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamick? formul??</title>
+  <style>
+    .Tab {
+    font-weight: bold;
+    padding: 5px;
+    border-style:solid;
+    border-width: 1px
+    }
+    body {
+    font-family: Veranda, sans-serif;
+    }
+  </style>
+  <script type="text/javascript">
+    function hledej(){
+        d = document.createElement("div");
+        let x = document.getElementById("pes").value;
+        x = x.replace(/0/g,'-');
+        x = x.replace(/1/g, "X");
+        d.textContent = x;
+        document.body.appendChild(d);
+    }
+  </script>
+  
+</head>
+<body>
+  <span class="Tab" onMouseOver="hledej()">Vykresli radek:</span>
+  <input type='text' name='q' id='pes'>
+  <br>
+</body>
+</html>

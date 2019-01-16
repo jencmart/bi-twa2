@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="User Mapper tool. Managing employee record have never been easier!"/>
+    <meta name="keywords" content="user, mapper, usermapper, business, tool, manage, management"/>
+    <meta name="author" content="Martin Jenc"/>
+    <meta name="copyright" content="Martin Jenc"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} | User Mapper</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('/build/app.css') }}">
+    {% block additional_css %} {%  endblock %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Roboto+Slab">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% block additional_js %} {%  endblock %}
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{{ path('index') }}">User-Mapper</a></li>
+        </ul>
+    </nav>
+    <ul>
+        <li> <a  href="{{ path('index') }}">login</a></li>
+    </ul>
+
+    {% block banner %}
+    {% endblock %}
+</header>
+<main {% if main is defined %} class="{{ main }}"{% endif %}>
+    {% block content %}
+    {% endblock %}
+</main>
+<aside>
+    {% block aside %}
+    {% endblock %}
+</aside>
+<footer>
+    <div>Copyright © 2018 Martin Jenc | BI-TWA | FIT CVUT</div>
+</footer>
+</body>
+</html>

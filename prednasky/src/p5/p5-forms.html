@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        // Definice tridy Komplex
+        function Komplex(real,imag)
+        {
+            // Vlastnosti tridy
+            this.x = real;
+            this.y = imag;
+            this.magnituda = Math.sqrt(this.x*this.x+this.y*this.y);
+            if (this.y > 0)
+                this.zapis = this.x.toFixed(2) + "i + " + this.y.toFixed(2);
+            else
+                this.zapis = this.x.toFixed(2) + "i  - " + ( -1* this.y).toFixed(2);
+        }
+
+        // Definice metod tridy Komplex
+        Komplex.soucet = function(a,b) {
+            return new Komplex(a.x+b.x,a.y+b.y);
+        }
+        Komplex.soucin = function(a,b) {
+            return new Komplex(a.x*b.x-a.y*b.y,a.x*b.y+a.y*b.x);
+        }
+        Komplex.soucin = function(a,b) {
+            return new Komplex(a.x*b.x-a.y*b.y,a.x*b.y+a.y*b.x);
+        }
+
+        // Priklady vytvoreni instanci tridy Komplex
+        Komplex.nula = new Komplex(0,0);
+        Komplex.jedna = new Komplex(1,0);
+        Komplex.i = new Komplex(0,1);
+
+        c1= new Komplex(4,4);
+        c2= new Komplex(4,4);
+        res1 = Komplex.soucet(c1,c2);
+        res2 = Komplex.soucin(c1,c2);
+
+        //x1 = D = b^2 - 4ac ; x1,2 = -b +- D / 2a
+        function discriminant(a,b,c) {
+            return b * b - 4 * a * c;
+        }
+
+        function solve(theForm) {
+            let a = theForm.a.value - 0;
+            let b = theForm.b.value - 0;
+            let c = theForm.c.value - 0;
+
+            let d = discriminant(a,b,c);
+            if (d === 0) {
+                let res = -1 * b / 2*a;
+                document.write("Koreny x1 == x2 == " + res +"<br>");
+            }
+            if (d < 0) {
+                d = Math.sqrt(-1*d);
+
+                c1 = new Komplex(0,-1*b);
+                c2 = new Komplex(d,0);
+                c2b = new Komplex(-1*d,0);
+                c3 = new Komplex(0, 1 / (2*a) );
+
+                tmp1 = Komplex.soucet(c1,c2);
+                tmp2 = Komplex.soucet(c1,c2b);
+
+                x1 = Komplex.soucin(tmp1, c3);
+                x2 = Komplex.soucin(tmp2, c3);
+
+                document.write("<h2>Komplexni koreny</h2><br><br>");
+                document.write("Koren x1 = " + x1.zapis +"<br><br>");
+                document.write("Koren x2 = " + x2.zapis);
+            }else {
+                d = Math.sqrt(d);
+                let x1 = ( -1 * b  + d) / 2*a;
+                let x2 = ( -1 * b  - d) / 2*a;
+                document.write("Koren x1 = " + x1 +"<br>");
+                document.write("Koren x2 = " + x2 +"<br>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>
+        Let's calculate ax^2 + bx + c = 0:
+    </h2>
+
+    <form action="#" onsubmit="return solve(this);">
+        <label>a
+            <input id="a" type="text">
+        </label>
+        <br><br>
+        <label>b
+            <input id ='b' type="text">
+        </label>
+        <br><br>
+        <label>c
+            <input id="c" type="text">
+        </label>
+        <br><br>
+        <button type="submit">Solve it!</button>
+    </form>
+</body>
+</html>

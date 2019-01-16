@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DB</title>
+    <meta charset="utf-8">
+
+    <script>
+        class Database {
+            constructor(database) {
+                this.database = database;
+            }
+            printDatabase() {
+                const query = prompt("Co chces vyhledat?").trim().toLowerCase();
+                window.document.writeln(`<table><thead><th>COMPANY</th><th>URL</th><th>INFO</th></thead><tbody>`);
+                for (let record of this.database) {
+                    if (record.name.toLowerCase().includes(query)  || record.link.toLowerCase().includes(query) || record.description.toLowerCase().includes(query))
+                        window.document.writeln(record);
+                }
+                window.document.writeln(`</tbody></table>`);
+            }
+        }
+
+        class Record {
+            constructor(name, link, description) {
+                this.name = name;
+                this.link = link;
+                this.description = description;
+            }
+            toString() {
+                return `<tr><td>${this.name}</td><td>${this.link}</td><td>${this.description}</td></tr>`;
+            }
+        }
+
+        // OUR STATIC DATABSASE
+        let database = [
+            new Record('Bing', 'https://bing.com', 'good'),
+            new Record('Google', 'https://google.com', 'bad'),
+            new Record('Seznam', 'http://seznam.cz', 'ugly'),
+        ];
+
+        // RUN IT
+        new Database(database).printDatabase();
+    </script>
+
+
+</head>
+<body>
+</body>
+</html>

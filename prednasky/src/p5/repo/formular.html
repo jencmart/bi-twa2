@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formuláøe</title>
+  </head>
+
+  <body>
+    <table border="0" cellpadding="2" cellspacing="5" bgcolor="#ddffdd">
+      <th colspan="2" style="text-align:center">FORMULÁØE</th>
+      <form method="post" action="calc.php">
+        <tr><td><pre>
+          Poèet èísel <input type="text" name="princip">
+          Poèet prvoèísel <input type="text" name="prvo">
+          První prvoèíslo <input type="text" name="prvni" value="2">
+          Dìlitelnost <input type="text" name="delitel" value="6">
+          <input type="submit" value="Nalézt prvoèísla">
+          </pre></td>
+          <td><textarea name="jmeno" cols="60" rows="20" wrap="type">
+          Zde mùže být poèáteèní text.
+          </textarea></td></tr>
+        <tr><td>Nula <input type="checkbox" name="digi[]" value="nule">
+          Jedna <input type="checkbox" name="digi[]" value="jedna">
+          Dva <input type="checkbox" name="digi[]" value="dva"></td>
+          <td>Ráno<input type="radio" name="cas" value="1">
+          Poledne<input type="radio" name="cas" value="2" checked="checked">
+          Veèer<input type="radio" name="cas" value="3"></td></tr>
+        <tr><td>Fibonacciho èíslo
+          <select name="fico" size="1">
+            <option value="sest">6</option>
+            <option value="sedm">7</option>
+            <option value="osm">8</option>
+            <option value="devet">9</option>
+            <option value="deset">10</option>
+            <option value="jedenact">11</option>
+          </select></td>
+          <td><label>Ráno<input type="radio" name="cas1" value="1"></label></td></tr>
+        <tr><td><input type='text' name='kredit' required='required'></td>
+          <td><input type="password" maxlength="12" name="heslo"></td></tr>
+        <tr><td>Výbìr místa dotazu:
+          <input type='url' name='site' list='links'>
+            <datalist id='links'>
+              <option label='Google' value='http://google.com'>
+              <option label='Yahoo!' value='http://yahoo.com'>
+              <option label='Bing' value='http://bing.com'>
+              <option label='Ask' value='http://ask.com'>
+            </datalist></td>
+          <td><input type='number' name='cislo'>
+          <input type='range' name='cislo1' min='0' max='100' value='50' step='1'></td></tr>
+          <tr><td colspan="2" style="text-align:center">
+          <input type='image' src='les.JPG' width='120' height='60'></td></tr>
+      </form>
+    </table>
+  </body>
+</html>

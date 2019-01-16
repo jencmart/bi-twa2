@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pøíklady na JSON</title>
+    <style>
+      h1 {color:red; font-size:36pt; font-family:"NotoEmoji Nerd Font Mono",monospace;}
+    </style>
+  </head>
+  <body>
+ 
+      <script type="text/javascript">
+         var text = '{"picture":[{"row":"..........."}, ' +
+             '{"row":"..........."}, {"row":"....X...."}, ' +
+             '{"row":"....X...."}, {"row":"....X...."}, ' +
+             '{"row":"....X...."}, {"row":"....X...."}, ' +
+             '{"row":"....X...."}, {"row":"....X...."}, ' +
+             '{"row":"....X...."}]}';
+
+      //    var text = '{"meeting":[{"world":"Výuka virtuální reality v Opavì"}, {"date":"1.11. 2018"}, {"time":"17:00"}, {"context":"Pek a Frooxius a potopa uèebny"}, {"image":"pf.jpg"}]}';
+       var pole = new Array();
+       pole = JSON.parse(text);
+
+          for (let i = 0; i < 10 ; i++) {
+              d = document.createElement("div");
+              d.textContent = pole.picture[i].row;
+              document.body.appendChild(d);
+          }
+
+    </script>
+  </body>
+</html>

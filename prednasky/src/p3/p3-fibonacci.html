@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--  (1476) Infinity -->
+    <script type="text/javascript">
+        c=0;
+        c2=1;
+        for(i=1; i <=10000; i++) {
+            document.write("(" + i + ") " + c2 + "<br>");
+            tmp = c + c2;
+            c = c2;
+            c2 = tmp;
+        }
+    </script>
+</body>
+</html>

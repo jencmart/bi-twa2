@@ -1,0 +1,113 @@
+{% extends 'layout.html.twig' %}
+
+{%  set main = 'detail' %}
+
+{% block title  %}
+ {{ employee.name }}
+{% endblock %}
+
+{%  block additional_js %}
+
+    <script>
+        $(document).ready(function(){
+            $("#profile-details-show").show();
+            $("#profile-details-edit").hide();
+
+            /* switch between show and edit user profile */
+            $("#profile-details-show-btn").click(function () {
+                $("#profile-details-show").show();
+                $("#profile-details-edit").hide();
+            });
+
+            $("#profile-details-edit-btn").click(function () {
+                $("#profile-details-show").hide();
+                $("#profile-details-edit").show();
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+    <header>
+        <h1 id="site-header">{{ employee.name }}</h1>
+        <img class="avatar-detail" src="/resources/img/avatar.png">
+    </header>
+
+    <section>
+        <ul class="nav nav-tabs hidden-print">
+            <li id="profile-details-show-btn" class="active"><a href="{{ path( 'user_detail', { id: employee.id } ) }}"><i class="icon fa fa-user"></i>User Profile</a></li>
+            <li id="profile-details-edit-btn" class=""><a href="#"><i class="icon fa fa-cog" ></i>Edit</a></li>
+        </ul>
+
+        <article id="profile-details-show">
+            <section>
+                <h3>Roles in UserMap</h3>
+
+
+                {% for role in employee.roles %}
+
+                    <div class="label">Role</div>
+                    <div>{{ role.role.title }}</div>
+
+                {% endfor %}
+
+
+            </section>
+
+            <section>
+                <h3>Contact Information</h3>
+                <div class="label">Phone</div>
+                <div>{{ employee.phone }}</div>
+                <div class="label">E-mail</div>
+                <div>{{ employee.email }}</div>
+                <div class="label">Web page</div>
+                <div>{{ employee.web }}</div>
+
+            </section>
+            <section>
+                <h3>Personal Information</h3>
+                <div class="label">Personal ID</div>
+                <div>{{ employee.id }}</div>
+                <div class="label">Accounts</div>
+
+                <a href="{{ path( 'user_accounts', { id: employee.id } ) }}">Manage</a>
+            </section>
+        </article>
+
+
+        <article id="profile-details-edit">
+
+            <form>
+                <section>
+                    <h3>Roles in UserMap</h3>
+
+                    <label> Function
+                        <select>
+
+                        </select>
+                    </label>
+
+
+                </section>
+
+                <section>
+                    <h3>Contact Information</h3>
+
+                    <label >Phone</label>
+                    <input type="text" placeholder="{{ employee.phone }}">
+
+                    <label >E-mail</label>
+                    <input type="text" placeholder="{{ employee.email }}">
+
+                    <label >Web page</label>
+                    <input type="text" placeholder="{{ employee.web }}">
+
+                </section>
+
+                <button>SAVE</button>
+            </form>
+
+        </article>
+    </section>
+{% endblock %}

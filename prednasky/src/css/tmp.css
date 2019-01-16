@@ -1,0 +1,9 @@
+#weather {
+    background-image: url('../../../prednasky/img/weather-rainy.svg');
+    height: 400px;
+    width: 400px;
+}
+
+#weather:hover {
+    background-image: url('../../../prednasky/img/weather-rainy.svg');
+}

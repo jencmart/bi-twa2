@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evaluace formuláøe</title>
+  
+    <script>
+    function evaluace(formular)
+      {
+      chyba = evaluaceJmeno(formular.jmeno.value);
+      chyba += evaluacePrijmeni(formular.prijmeni.value);
+      chyba += evaluaceUzivjmeno(formular.uzivjmeno.value);
+      chyba += evaluaceHeslo(formular.heslo.value);
+      chyba += evaluaceEmail(formular.email.value);
+      if (chyba == "") 
+        return true;
+        else 
+          {
+          window.alert(chyba); 
+          return false; 
+          }
+      }   
+        
+    function evaluaceJmeno(pole)
+      {
+        if (pole == "") 
+          { return "Nebylo zadáno žádné jméno.\n"; }
+        else
+          { return ""; }        
+      }
+
+    function evaluacePrijmeni(pole)
+      {
+        if (pole == "") 
+            { return "Nebylo zadáno žádné Pøíjmení.\n"; }
+        else
+            { return ""; }
+      }
+
+    function evaluaceUzivjmeno(pole)
+      {
+        if (pole == "") 
+          { return "Nebylo zadáno žádné uživatelské jméno.\n";}
+        else if (pole.length < 3)
+          { return "Uživatelské jméno musí mít alespoò 3 znaky.\n"; } 
+        else if (/[^a-zA-Z0-9_-]/.test(pole))
+          { return "Pouze znaky a-z, A-Z, 0-9, - _  jsou povoleny.\n"; }
+        else
+          { return ""; }
+      }
+
+    function evaluaceHeslo(pole)
+      {
+      if (pole == "") 
+        { return "Nebylo vloženo žádné heslo.\n";}
+          else if (pole.length < 8)
+            { return "Heslo musí obsahovat alespoò 8 znakù.\n"; } 
+            else if (!/[a-z]/.test(pole) || !/[A-Z]/.test(pole) || !/[0-9]/.test(pole))
+              { return "Heslo musí obsahovat znaky z a-z, A-Z and 0-9.\n"; }
+            else 
+              { return ""; }
+       }
+
+    function evaluaceEmail(pole)
+      {
+        if (pole == "") 
+          { return "Není uveden žádný e-mail.\n"; }
+        else if (!((pole.indexOf(".") > 0) && (pole.indexOf("@") > 0)) || /[^a-zA-Z0-9.@_-]/.test(pole))
+          { return "E-mail není platný.\n"; }
+        else
+          { return "";}
+      }
+    </script>
+  </head>
+
+  <body>
+    <table border="0" cellpadding="2" cellspacing="5" bgcolor="#ccccff">
+      <th colspan="2" style="text-align:center">Formuláø zápisu</th>
+      <form method="post" action="adduser.php" onsubmit="return evaluace(this)">
+        <tr><td>Jméno</td>
+          <td><input type="text" maxlength="32" name="jmeno"></td></tr>
+        <tr><td>Pøíjmení</td>
+          <td><input type="text" maxlength="32" name="prijmeni"></td></tr>
+        <tr><td>Uživatelské jméno</td>
+          <td><input type="text" maxlength="16" name="uzivjmeno"></td></tr>
+        <tr><td>Heslo</td>
+          <td><input type="password" maxlength="12" name="heslo"></td></tr>
+        <tr><td>E-mail</td>
+          <td><input type="text" maxlength="64" name="email"></td></tr>
+        <tr><td colspan="2" style="text-align:center"><input type="submit" value="Vstup"></td></tr>
+      </form>
+    </table>
+  </body>
+</html>

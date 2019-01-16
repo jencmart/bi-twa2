@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{%  set main = 'index' %}
+
+{% block title %} Index {% endblock %}
+
+{% block banner %}
+
+{% endblock %}
+
+
+{% block content %}
+    <h1>User search</h1>
+
+    <section id="panel-search">
+        <form action="{{ path('user_list') }}" method="get">
+            <label for="search"></label>
+            <input type="search" name="query" id="search" placeholder="Searched Name and Surname">
+            <button type="submit">Find Him!</button>
+        </form>
+    </section>
+{% endblock %}
